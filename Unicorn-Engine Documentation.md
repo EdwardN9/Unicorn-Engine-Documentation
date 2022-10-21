@@ -19,7 +19,7 @@ git clone https://github.com/unicorn-engine/unicorn.git
 
 ### 编译
 
-<details><summary>Linux & MacOS</summary>
+<details open><summary>Linux & MacOS</summary>
 
 Ubuntu
 ```bash
@@ -39,7 +39,7 @@ make
 ```
 </details>
 
-<details><summary>Windows</summary>
+<details open><summary>Windows</summary>
 
 Microsoft MSVC编译器编译
 ```bash
@@ -50,7 +50,7 @@ cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release
 nmake
 ```
 
-<details><summary>VS GUI内编译lib和dll(旧)</summary>
+<details open><summary>VS GUI内编译lib和dll(旧)</summary>
 
 源码： https://github.com/unicorn-engine/unicorn/archive/master.zip
 
@@ -142,7 +142,7 @@ brew install unicorn
 
 主文件代码如下
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 #include <iostream>
@@ -248,7 +248,7 @@ ecx+1和edx-1成功模拟。
 
 架构选择
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef enum uc_arch {
@@ -272,7 +272,7 @@ typedef enum uc_arch {
 
 模式选择
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef enum uc_mode {
@@ -331,7 +331,7 @@ typedef enum uc_mode {
 
 错误类型，是[uc_errno()](#uc_errno)的返回值
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef enum uc_err {
@@ -367,7 +367,7 @@ typedef enum uc_err {
 
 UC_HOOK_MEM_*的所有内存访问类型
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef enum uc_mem_type {
@@ -391,7 +391,7 @@ typedef enum uc_mem_type {
 
 [uc_hook_add()](#uc_hook_add)的所有hook类型参数
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef enum uc_hook_type {
@@ -443,7 +443,7 @@ typedef enum uc_hook_type {
 
 宏定义Hook类型
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 // Hook 所有未映射内存访问的事件
@@ -472,7 +472,7 @@ typedef enum uc_hook_type {
 由[uc_mem_map()](#uc_mem_map)和[uc_mem_map_ptr()](#uc_mem_map_ptr)映射内存区域
 使用[uc_mem_regions()](#uc_mem_regions)检索该内存区域的列表
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef struct uc_mem_region {
@@ -489,7 +489,7 @@ typedef struct uc_mem_region {
 
 [uc_query()](#uc_query)的所有查询类型参数
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef enum uc_query_type {
@@ -508,7 +508,7 @@ typedef enum uc_query_type {
 
 [uc_ctl()](#uc_ctl)的所有查询类型参数
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 // uc_ctl 的实现与 Linux ioctl 较为类似但略有不同
@@ -598,7 +598,7 @@ typedef enum uc_control_type {
 
 与uc_context_*()一起使用，管理CPU上下文的不透明存储
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 struct uc_context;
@@ -612,7 +612,7 @@ typedef struct uc_context uc_context;
 
 新映射区域的权限
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```cpp
 typedef enum uc_prot {
@@ -705,7 +705,7 @@ unsigned int uc_version(unsigned int *major, unsigned int *minor);
 提示: 该返回值可以和宏UC_MAKE_VERSION比较
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 unsigned int uc_version(unsigned int *major, unsigned int *minor)
@@ -761,7 +761,7 @@ bool uc_arch_supported(uc_arch arch);
  @return 如果支持返回True
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 bool uc_arch_supported(uc_arch arch)
@@ -833,7 +833,7 @@ uc_err uc_open(uc_arch arch, uc_mode mode, uc_engine **uc);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_open(uc_arch arch, uc_mode mode, uc_engine **result)
@@ -1041,7 +1041,7 @@ uc_err uc_close(uc_engine *uc);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_close(uc_engine *uc)
@@ -1141,7 +1141,7 @@ uc_err uc_query(uc_engine *uc, uc_query_type type, size_t *result);
  @return: 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_query(uc_engine *uc, uc_query_type type, size_t *result)
@@ -1230,7 +1230,7 @@ uc_err uc_errno(uc_engine *uc);
 @return: 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_errno(uc_engine *uc)
@@ -1298,7 +1298,7 @@ const char *uc_strerror(uc_err code);
  @return: 指向给定错误号的解释的字符串指针
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```cpp
 const char *uc_strerror(uc_err code)
@@ -1413,7 +1413,7 @@ uc_err uc_reg_write(uc_engine *uc, int regid, const void *value);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_reg_write(uc_engine *uc, int regid, const void *value)
@@ -1494,7 +1494,7 @@ uc_err uc_reg_read(uc_engine *uc, int regid, void *value);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_reg_read(uc_engine *uc, int regid, void *value)
@@ -1580,7 +1580,7 @@ uc_err uc_reg_write_batch(uc_engine *uc, int *regs, void *const *vals, int count
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_reg_write_batch(uc_engine *uc, int *ids, void *const *vals, int count)
@@ -1688,7 +1688,7 @@ uc_err uc_reg_read_batch(uc_engine *uc, int *regs, void **vals, int count);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_reg_read_batch(uc_engine *uc, int *ids, void **vals, int count)
@@ -1727,7 +1727,7 @@ uc_err uc_mem_write(uc_engine *uc, uint64_t address, const void *bytes, size_t s
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_mem_write(uc_engine *uc, uint64_t address, const void *_bytes, size_t size)
@@ -1847,7 +1847,7 @@ uc_err uc_mem_read(uc_engine *uc, uint64_t address, void *bytes, size_t size);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_mem_read(uc_engine *uc, uint64_t address, void *_bytes, size_t size)
@@ -1907,7 +1907,7 @@ uc_err uc_emu_start(uc_engine *uc, uint64_t begin, uint64_t until, uint64_t time
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_emu_start(uc_engine* uc, uint64_t begin, uint64_t until, uint64_t timeout, size_t count)
@@ -2097,7 +2097,7 @@ uc_err uc_emu_stop(uc_engine *uc);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_emu_stop(uc_engine *uc)
@@ -2151,7 +2151,7 @@ uc_err uc_hook_add(uc_engine *uc, uc_hook *hh, int type, void *callback,
  @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_hook_add(uc_engine *uc, uc_hook *hh, int type, void *callback,
@@ -2374,7 +2374,7 @@ uc_err uc_hook_del(uc_engine *uc, uc_hook hh);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_hook_del(uc_engine *uc, uc_hook hh)
@@ -2429,7 +2429,7 @@ uc_err uc_mem_map(uc_engine *uc, uint64_t address, size_t size, uint32_t perms);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_mem_map(uc_engine *uc, uint64_t address, size_t size, uint32_t perms)
@@ -2472,7 +2472,7 @@ uc_err uc_mem_map_ptr(uc_engine *uc, uint64_t address, size_t size, uint32_t per
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_mem_map_ptr(uc_engine *uc, uint64_t address, size_t size, uint32_t perms, void *ptr)
@@ -2516,7 +2516,7 @@ uc_err uc_mem_unmap(uc_engine *uc, uint64_t address, size_t size);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_mem_unmap(struct uc_struct *uc, uint64_t address, size_t size)
@@ -2601,7 +2601,7 @@ uc_err uc_mem_protect(uc_engine *uc, uint64_t address, size_t size, uint32_t per
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_mem_protect(struct uc_struct *uc, uint64_t address, size_t size, uint32_t perms)
@@ -2699,7 +2699,7 @@ uc_err uc_mem_regions(uc_engine *uc, uc_mem_region **regions, uint32_t *count);
 
 源码分析
 
-<details><summary> Code </summary>
+<details open><summary> Code </summary>
 
 ```c
 uint32_t uc_mem_regions(uc_engine *uc, uc_mem_region **regions, uint32_t *count)
@@ -2793,7 +2793,7 @@ uc_err uc_free(void *mem);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_free(void *mem)
@@ -2829,7 +2829,7 @@ uc_err uc_context_alloc(uc_engine *uc, uc_context **context);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_context_alloc(uc_engine *uc, uc_context **context)
@@ -2973,7 +2973,7 @@ uc_err uc_context_save(uc_engine *uc, uc_context *context);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_context_save(uc_engine *uc, uc_context *context)
@@ -3005,7 +3005,7 @@ uc_err uc_context_restore(uc_engine *uc, uc_context *context);
 @return 成功则返回UC_ERR_OK , 否则返回 uc_err 枚举的其他错误类型
 ```
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 uc_err uc_context_restore(uc_engine *uc, uc_context *context)
@@ -3037,7 +3037,7 @@ size_t uc_context_size(uc_engine *uc);
 ```
 
 
-<details><summary> 源码实现 </summary>
+<details open><summary> 源码实现 </summary>
 
 ```c
 size_t uc_context_size(uc_engine *uc)
